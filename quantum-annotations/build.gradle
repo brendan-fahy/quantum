@@ -1,0 +1,18 @@
+apply plugin: 'java'
+
+targetCompatibility = JavaVersion.VERSION_1_7
+sourceCompatibility = JavaVersion.VERSION_1_7
+
+configurations {
+    provided
+    compile.extendsFrom provided
+}
+
+repositories {
+    maven { url '/Users/bfahy/Library/Android/sdk/extras/android/m2repository' }
+}
+
+dependencies {
+    provided 'com.google.android:android:2.1.2'
+    compile 'com.android.support:support-annotations:23.1.1'
+}

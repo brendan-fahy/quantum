@@ -1,0 +1,12 @@
+.gradle
+/local.properties
+/.idea/workspace.xml
+/build
+
+.idea/compiler.xml
+.idea/gradle.xml
+.idea/misc.xml
+.idea/modules.xml
+.idea/copyright/profiles_settings.xml
+.idea
+*.iml
