@@ -2,14 +2,18 @@ package quantum.sample;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.TextView;
 
 import quantum.Quantum;
+import quantum.Tangle;
 import quantum.annotations.Entangle;
 
 public class MainActivity extends AppCompatActivity {
 
-    @Entangle("any_string")
+    private static final String CONNECTION_ID = "connectionId";
+
+    @Entangle(CONNECTION_ID)
     TextView tvSample;
 
     @Override
@@ -18,6 +22,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         tvSample = (TextView) findViewById(R.id.tvSample);
+
+        Quantum.registerTangle(CONNECTION_ID, new Tangle() {
+            @Override
+            public void act(View view) {
+                view.setVisibility(View.GONE);
+            }
+        });
 
         Quantum.entangle(this);
     }

@@ -43,7 +43,10 @@ final class EntanglingClass {
                 .addParameter(TypeVariableName.get("T"), "target", FINAL)
                 .addParameter(Object.class, "source");
 
-        result.addStatement("target.$L.setVisibility(android.view.View.GONE)", fieldName);
+//        result.addStatement("target.$L.setVisibility(android.view.View.GONE)", fieldName);
+
+        result.addStatement("String connectionId = \"$L\"", connectionId);
+        result.addStatement("quantum.Quantum.getTangle(connectionId).act(target.$L)", fieldName);
 
         return result.build();
     }
