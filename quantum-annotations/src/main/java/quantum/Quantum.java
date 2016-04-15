@@ -1,7 +1,6 @@
 package quantum;
 
 import android.app.Activity;
-import android.view.View;
 
 import java.lang.reflect.Method;
 import java.util.HashMap;
@@ -19,11 +18,22 @@ public class Quantum {
     public static void entangle(Activity target) {
         try {
             Class<?> entangler = Class.forName(target.getClass().getName() + GENERATED_SUFFIX);
-            Method entangle = entangler.getMethod("entangle", target.getClass(), Object.class);
+            Method entangle = entangler.getMethod("entangle", target.getClass());
 
-            entangle.invoke(entangler.newInstance(), target, target);
+            entangle.invoke(entangler.newInstance(), target);
         } catch (Exception ex) {
             throw new RuntimeException("Unable to entangle Quantum-annotated Views for Activity " + target, ex);
+        }
+    }
+
+    public static void detangle(Activity target) {
+        try{
+            Class<?> untangler = Class.forName(target.getClass().getName() + GENERATED_SUFFIX);
+            Method untangle = untangler.getMethod("detangle");
+
+            untangle.invoke(untangler.newInstance());
+        } catch (Exception ex) {
+            throw new RuntimeException("Unable to detangle Quantum-annoted Views for Activity " + target, ex);
         }
     }
 
@@ -50,8 +60,14 @@ public class Quantum {
     }
 
     private static final Tangle TANGLE_NO_OP = new Tangle() {
+
         @Override
-        public void act(View view) {
+        public Object getValue() {
+            return null;
+        }
+
+        @Override
+        public void setValue(Object value) {
             // Do nothing.
         }
     };

@@ -1,12 +1,14 @@
 package quantum.compiler;
 
 import com.squareup.javapoet.ClassName;
+import com.squareup.javapoet.FieldSpec;
 import com.squareup.javapoet.JavaFile;
 import com.squareup.javapoet.MethodSpec;
 import com.squareup.javapoet.TypeSpec;
 import com.squareup.javapoet.TypeVariableName;
 
 import static javax.lang.model.element.Modifier.FINAL;
+import static javax.lang.model.element.Modifier.PRIVATE;
 import static javax.lang.model.element.Modifier.PUBLIC;
 
 final class EntanglingClass {
@@ -30,7 +32,21 @@ final class EntanglingClass {
                 .addModifiers(PUBLIC)
                 .addTypeVariable(TypeVariableName.get("T", ClassName.bestGuess(targetClass)));
 
+        result.addSuperinterface(ClassName.get("java.util", "Observer"));
+
         result.addMethod(createEntangleMethod());
+
+        result.addMethod(createDetangleMethod());
+
+        result.addMethod(createUpdateMethod());
+
+        result.addField(FieldSpec.builder(TypeVariableName.get("T", ClassName.bestGuess(targetClass)), "target")
+                .addModifiers(PRIVATE)
+                .build());
+
+        result.addField(FieldSpec.builder(String.class, "id").initializer("\"$L\"", connectionId)
+                .addModifiers(PRIVATE)
+                .build());
 
         return JavaFile.builder(classPackage, result.build())
                 .addFileComment("Generated code from Quantum. Do not modify!")
@@ -40,13 +56,30 @@ final class EntanglingClass {
     private MethodSpec createEntangleMethod() {
         MethodSpec.Builder result = MethodSpec.methodBuilder("entangle")
                 .addModifiers(PUBLIC)
-                .addParameter(TypeVariableName.get("T"), "target", FINAL)
-                .addParameter(Object.class, "source");
+                .addParameter(TypeVariableName.get("T"), "target", FINAL);
 
-//        result.addStatement("target.$L.setVisibility(android.view.View.GONE)", fieldName);
+        result.addStatement("this.target = target");
+        result.addStatement("quantum.Quantum.getTangle(id).addObserver(this)");
 
-        result.addStatement("String connectionId = \"$L\"", connectionId);
-        result.addStatement("quantum.Quantum.getTangle(connectionId).act(target.$L)", fieldName);
+        return result.build();
+    }
+
+    private MethodSpec createDetangleMethod() {
+        return MethodSpec.methodBuilder("detangle")
+                .addModifiers(PUBLIC)
+                .addStatement("quantum.Quantum.getTangle(id).deleteObservers()")
+                .build();
+    }
+
+    private MethodSpec createUpdateMethod() {
+        MethodSpec.Builder result = MethodSpec.methodBuilder("update")
+                .addModifiers(PUBLIC)
+                .addAnnotation(Override.class)
+                .addParameter(ClassName.get("java.util", "Observable"), "observable")
+                .addParameter(Object.class, "data");
+
+        result.addStatement("target.$L.setVisibility((((quantum.Tangle<Boolean>) observable).getValue()) " +
+                        "? android.view.View.GONE : android.view.View.VISIBLE)", fieldName);
 
         return result.build();
     }

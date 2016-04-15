@@ -25,10 +25,20 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:23.1.1'
+    // Android
+    compile'com.android.support:appcompat-v7:23.3.0'
+    compile'com.android.support:design:23.3.0'
 
+    // Quantum
     apt project(':quantum-compiler')
     compile project(':quantum-annotations')
+
+    // RxJava
+    compile'io.reactivex:rxjava:1.0.10'
+    compile'io.reactivex:rxandroid:1.0.1'
+    compile'com.jakewharton.rxbinding:rxbinding:0.2.0'
+
+    testCompile 'junit:junit:4.12'
+
+    compile fileTree(dir: 'libs', include: ['*.jar'])
 }

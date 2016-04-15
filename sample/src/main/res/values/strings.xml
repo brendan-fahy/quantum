@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">A Quantum of Sample</string>
+    <string name="button_entangle">Start</string>
 </resources>

@@ -2,10 +2,14 @@ package quantum.sample;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.CheckBox;
 import android.widget.TextView;
+
+import com.jakewharton.rxbinding.widget.RxCompoundButton;
 
 import quantum.Quantum;
 import quantum.annotations.Entangle;
+import rx.functions.Action1;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -19,6 +23,18 @@ public class MainActivity extends AppCompatActivity {
 
         tvSample = (TextView) findViewById(R.id.tvSample);
 
-        Quantum.entangle(this);
+        CheckBox checkBox = (CheckBox) findViewById(R.id.checkbox);
+
+        RxCompoundButton.checkedChanges(checkBox)
+                .subscribe(new Action1<Boolean>() {
+                    @Override
+                    public void call(Boolean aBoolean) {
+                        if (aBoolean) {
+                            Quantum.entangle(MainActivity.this);
+                        } else {
+                            Quantum.detangle(MainActivity.this);
+                        }
+                    }
+                });
     }
 }

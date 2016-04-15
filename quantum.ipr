@@ -135,17 +135,27 @@
         <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.android/android/2.1.2/9f2c404df26e395ace6e6ed1128a0b72af1136f3/android-2.1.2-sources.jar!/" />
       </SOURCES>
     </library>
-    <library name="appcompat-v7-23.1.1">
-      <ANNOTATIONS>
-        <root url="jar://$PROJECT_DIR$/sample/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/annotations.zip!/" />
-      </ANNOTATIONS>
+    <library name="animated-vector-drawable-23.3.0">
       <CLASSES>
-        <root url="jar://$PROJECT_DIR$/sample/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/jars/classes.jar!/" />
-        <root url="file://$PROJECT_DIR$/sample/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res" />
+        <root url="file://$PROJECT_DIR$/sample/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/23.3.0/res" />
+        <root url="jar://$PROJECT_DIR$/sample/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/23.3.0/jars/classes.jar!/" />
       </CLASSES>
       <JAVADOC />
       <SOURCES>
-        <root url="jar://$USER_HOME$/Library/Android/sdk/extras/android/m2repository/com/android/support/appcompat-v7/23.1.1/appcompat-v7-23.1.1-sources.jar!/" />
+        <root url="jar://$USER_HOME$/Library/Android/sdk/extras/android/m2repository/com/android/support/animated-vector-drawable/23.3.0/animated-vector-drawable-23.3.0-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="appcompat-v7-23.3.0">
+      <ANNOTATIONS>
+        <root url="jar://$PROJECT_DIR$/sample/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/annotations.zip!/" />
+      </ANNOTATIONS>
+      <CLASSES>
+        <root url="file://$PROJECT_DIR$/sample/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res" />
+        <root url="jar://$PROJECT_DIR$/sample/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/jars/classes.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="jar://$USER_HOME$/Library/Android/sdk/extras/android/m2repository/com/android/support/appcompat-v7/23.3.0/appcompat-v7-23.3.0-sources.jar!/" />
       </SOURCES>
     </library>
     <library name="auto-common-0.3">
@@ -184,6 +194,19 @@
       <SOURCES>
         <root url="jar://$APPLICATION_HOME_DIR$/gradle/m2repository/commons-logging/commons-logging/1.1.1/commons-logging-1.1.1-sources.jar!/" />
         <root url="jar://$APPLICATION_HOME_DIR$/gradle/m2repository/commons-logging/commons-logging/1.1.1/commons-logging-1.1.1-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="design-23.3.0">
+      <ANNOTATIONS>
+        <root url="jar://$PROJECT_DIR$/sample/build/intermediates/exploded-aar/com.android.support/design/23.3.0/annotations.zip!/" />
+      </ANNOTATIONS>
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/sample/build/intermediates/exploded-aar/com.android.support/design/23.3.0/jars/classes.jar!/" />
+        <root url="file://$PROJECT_DIR$/sample/build/intermediates/exploded-aar/com.android.support/design/23.3.0/res" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="jar://$USER_HOME$/Library/Android/sdk/extras/android/m2repository/com/android/support/design/23.3.0/design-23.3.0-sources.jar!/" />
       </SOURCES>
     </library>
     <library name="guava-18.0">
@@ -276,6 +299,48 @@
       <JAVADOC />
       <SOURCES />
     </library>
+    <library name="recyclerview-v7-23.3.0">
+      <ANNOTATIONS>
+        <root url="jar://$PROJECT_DIR$/sample/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.3.0/annotations.zip!/" />
+      </ANNOTATIONS>
+      <CLASSES>
+        <root url="file://$PROJECT_DIR$/sample/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.3.0/res" />
+        <root url="jar://$PROJECT_DIR$/sample/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.3.0/jars/classes.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="jar://$USER_HOME$/Library/Android/sdk/extras/android/m2repository/com/android/support/recyclerview-v7/23.3.0/recyclerview-v7-23.3.0-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="rxandroid-1.0.1">
+      <CLASSES>
+        <root url="file://$PROJECT_DIR$/sample/build/intermediates/exploded-aar/io.reactivex/rxandroid/1.0.1/res" />
+        <root url="jar://$PROJECT_DIR$/sample/build/intermediates/exploded-aar/io.reactivex/rxandroid/1.0.1/jars/classes.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.reactivex/rxandroid/1.0.1/5de1084e44ee8bbcdde96d5fa90460b4f77a482/rxandroid-1.0.1-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="rxbinding-0.2.0">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/sample/build/intermediates/exploded-aar/com.jakewharton.rxbinding/rxbinding/0.2.0/jars/classes.jar!/" />
+        <root url="file://$PROJECT_DIR$/sample/build/intermediates/exploded-aar/com.jakewharton.rxbinding/rxbinding/0.2.0/res" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.jakewharton.rxbinding/rxbinding/0.2.0/4c3d86e8cd9aa1741e455e4176087e9ed5e0e6f1/rxbinding-0.2.0-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="rxjava-1.0.14">
+      <CLASSES>
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.reactivex/rxjava/1.0.14/898f9ab61e2a23afd615f0b0389478bec86f49f9/rxjava-1.0.14.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.reactivex/rxjava/1.0.14/e7bad33560b6c163b25073e85e3b2f70948da2bc/rxjava-1.0.14-sources.jar!/" />
+      </SOURCES>
+    </library>
     <library name="support-annotations-23.1.1">
       <CLASSES>
         <root url="jar://$USER_HOME$/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/23.1.1/support-annotations-23.1.1.jar!/" />
@@ -286,18 +351,37 @@
         <root url="jar://$USER_HOME$/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/23.1.1/support-annotations-23.1.1-sources.jar!/" />
       </SOURCES>
     </library>
-    <library name="support-v4-23.1.1">
-      <ANNOTATIONS>
-        <root url="jar://$PROJECT_DIR$/sample/build/intermediates/exploded-aar/com.android.support/support-v4/23.1.1/annotations.zip!/" />
-      </ANNOTATIONS>
+    <library name="support-annotations-23.3.0">
       <CLASSES>
-        <root url="jar://$PROJECT_DIR$/sample/build/intermediates/exploded-aar/com.android.support/support-v4/23.1.1/jars/libs/internal_impl-23.1.1.jar!/" />
-        <root url="file://$PROJECT_DIR$/sample/build/intermediates/exploded-aar/com.android.support/support-v4/23.1.1/res" />
-        <root url="jar://$PROJECT_DIR$/sample/build/intermediates/exploded-aar/com.android.support/support-v4/23.1.1/jars/classes.jar!/" />
+        <root url="jar://$USER_HOME$/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/23.3.0/support-annotations-23.3.0.jar!/" />
       </CLASSES>
       <JAVADOC />
       <SOURCES>
-        <root url="jar://$USER_HOME$/Library/Android/sdk/extras/android/m2repository/com/android/support/support-v4/23.1.1/support-v4-23.1.1-sources.jar!/" />
+        <root url="jar://$USER_HOME$/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/23.3.0/support-annotations-23.3.0-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="support-v4-23.3.0">
+      <ANNOTATIONS>
+        <root url="jar://$PROJECT_DIR$/sample/build/intermediates/exploded-aar/com.android.support/support-v4/23.3.0/annotations.zip!/" />
+      </ANNOTATIONS>
+      <CLASSES>
+        <root url="file://$PROJECT_DIR$/sample/build/intermediates/exploded-aar/com.android.support/support-v4/23.3.0/res" />
+        <root url="jar://$PROJECT_DIR$/sample/build/intermediates/exploded-aar/com.android.support/support-v4/23.3.0/jars/libs/internal_impl-23.3.0.jar!/" />
+        <root url="jar://$PROJECT_DIR$/sample/build/intermediates/exploded-aar/com.android.support/support-v4/23.3.0/jars/classes.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="jar://$USER_HOME$/Library/Android/sdk/extras/android/m2repository/com/android/support/support-v4/23.3.0/support-v4-23.3.0-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="support-vector-drawable-23.3.0">
+      <CLASSES>
+        <root url="file://$PROJECT_DIR$/sample/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/23.3.0/res" />
+        <root url="jar://$PROJECT_DIR$/sample/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/23.3.0/jars/classes.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="jar://$USER_HOME$/Library/Android/sdk/extras/android/m2repository/com/android/support/support-vector-drawable/23.3.0/support-vector-drawable-23.3.0-sources.jar!/" />
       </SOURCES>
     </library>
     <library name="xmlParserAPIs-2.6.2">

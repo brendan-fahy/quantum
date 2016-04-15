@@ -1,10 +1,15 @@
 package quantum.sample;
 
 import android.app.Application;
-import android.view.View;
+
+import java.util.concurrent.TimeUnit;
 
 import quantum.Quantum;
 import quantum.Tangle;
+import rx.Observable;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.functions.Action1;
+import rx.schedulers.Schedulers;
 
 public class SampleApplication extends Application {
 
@@ -14,11 +19,18 @@ public class SampleApplication extends Application {
     public void onCreate() {
         super.onCreate();
 
-        Quantum.registerTangle(CONNECTION_ID, new Tangle() {
-            @Override
-            public void act(View view) {
-                view.setVisibility(View.GONE);
-            }
-        });
+        final Tangle<Boolean> tangle = new Tangle<>();
+
+        Quantum.registerTangle(CONNECTION_ID, tangle);
+
+        Observable.interval(1l, TimeUnit.SECONDS)
+                .subscribeOn(Schedulers.computation())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Action1<Long>() {
+                    @Override
+                    public void call(Long aLong) {
+                        tangle.setValue(tangle.getValue() == null || !tangle.getValue());
+                    }
+                });
     }
 }

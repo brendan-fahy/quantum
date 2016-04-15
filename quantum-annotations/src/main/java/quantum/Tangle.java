@@ -1,9 +1,21 @@
 package quantum;
 
-import android.view.View;
+import java.util.Observable;
 
-public interface Tangle {
+/**
+ * Created by bfahy on 15/04/16.
+ */
+public class Tangle<T> extends Observable {
 
-    void act(View view);
+    T value;
 
+    public T getValue() {
+        return value;
+    }
+
+    public void setValue(T value) {
+        this.value = value;
+        setChanged();
+        notifyObservers();
+    }
 }
