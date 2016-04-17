@@ -2,6 +2,7 @@ package quantum.compiler;
 
 import com.google.auto.common.SuperficialValidation;
 import com.google.auto.service.AutoService;
+import com.google.common.annotations.VisibleForTesting;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -226,7 +227,8 @@ public class QuantumProcessor extends AbstractProcessor {
         return elementUtils.getPackageOf(type).getQualifiedName().toString();
     }
 
-    private static String getClassName(TypeElement type, String packageName) {
+    @VisibleForTesting
+    static String getClassName(TypeElement type, String packageName) {
         int packageLen = packageName.length() + 1;
         return type.getQualifiedName().toString().substring(packageLen).replace('.', '$');
     }
