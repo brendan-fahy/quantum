@@ -1,5 +1,6 @@
 package quantum.compiler;
 
+import com.google.common.annotations.VisibleForTesting;
 import com.squareup.javapoet.ClassName;
 import com.squareup.javapoet.FieldSpec;
 import com.squareup.javapoet.JavaFile;
@@ -12,6 +13,9 @@ import static javax.lang.model.element.Modifier.PRIVATE;
 import static javax.lang.model.element.Modifier.PUBLIC;
 
 final class EntanglingClass {
+
+    @VisibleForTesting
+    static final String GENERATED_CODE_COMMENT = "Generated code from Quantum. Do not modify!";
 
     private final String classPackage;
     private final String className;
@@ -28,6 +32,15 @@ final class EntanglingClass {
     }
 
     JavaFile brewJava() {
+        TypeSpec classTypeSpec = createTypeSpec();
+
+        return JavaFile.builder(classPackage, classTypeSpec)
+                .addFileComment(GENERATED_CODE_COMMENT)
+                .build();
+    }
+
+    @VisibleForTesting
+    TypeSpec createTypeSpec() {
         TypeSpec.Builder result = TypeSpec.classBuilder(className)
                 .addModifiers(PUBLIC)
                 .addTypeVariable(TypeVariableName.get("T", ClassName.bestGuess(targetClass)));
@@ -48,12 +61,11 @@ final class EntanglingClass {
                 .addModifiers(PRIVATE)
                 .build());
 
-        return JavaFile.builder(classPackage, result.build())
-                .addFileComment("Generated code from Quantum. Do not modify!")
-                .build();
+        return result.build();
     }
 
-    private MethodSpec createEntangleMethod() {
+    @VisibleForTesting
+    MethodSpec createEntangleMethod() {
         MethodSpec.Builder result = MethodSpec.methodBuilder("entangle")
                 .addModifiers(PUBLIC)
                 .addParameter(TypeVariableName.get("T"), "target", FINAL);
@@ -64,14 +76,16 @@ final class EntanglingClass {
         return result.build();
     }
 
-    private MethodSpec createDetangleMethod() {
+    @VisibleForTesting
+    MethodSpec createDetangleMethod() {
         return MethodSpec.methodBuilder("detangle")
                 .addModifiers(PUBLIC)
                 .addStatement("quantum.Quantum.getTangle(id).deleteObservers()")
                 .build();
     }
 
-    private MethodSpec createUpdateMethod() {
+    @VisibleForTesting
+    MethodSpec createUpdateMethod() {
         MethodSpec.Builder result = MethodSpec.methodBuilder("update")
                 .addModifiers(PUBLIC)
                 .addAnnotation(Override.class)
