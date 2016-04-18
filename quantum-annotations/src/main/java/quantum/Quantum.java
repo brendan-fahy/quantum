@@ -1,6 +1,7 @@
 package quantum;
 
 import android.app.Activity;
+import android.support.annotation.VisibleForTesting;
 
 import java.lang.reflect.Method;
 import java.util.HashMap;
@@ -59,7 +60,8 @@ public class Quantum {
         }
     }
 
-    private static final Tangle TANGLE_NO_OP = new Tangle() {
+    @VisibleForTesting
+    static final Tangle TANGLE_NO_OP = new Tangle() {
 
         @Override
         public Object getValue() {
