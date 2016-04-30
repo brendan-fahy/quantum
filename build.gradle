@@ -17,7 +17,7 @@ buildscript {
     }
     dependencies {
         classpath 'gradle-templates:gradle-templates:1.5'
-        classpath 'com.android.tools.build:gradle:2.1.0-beta1'
+        classpath 'com.android.tools.build:gradle:2.1.0'
         classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
     }
 }
